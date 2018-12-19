@@ -13,4 +13,4 @@ function CharCount(str) {
   return result;
 }
 
-console.log(CharCount("Vidit Shah !!!"));
+console.log(CharCount("Vidit Shah"));
