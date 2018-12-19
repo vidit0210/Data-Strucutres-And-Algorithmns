@@ -3,7 +3,7 @@ function sumOfSubArray(arr, num) {
   for (let i = 0; i < arr.length - num + 1; i++) {
     let temp = 0;
     for (let j = 0; j < num; j++) {
-      temp += arr[i] + arr[j];
+      temp += arr[i + j];
     }
     if (temp > max) {
       max = temp;
