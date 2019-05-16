@@ -74,6 +74,30 @@ class SinglyLinkList {
         }
         return current
     }
+    set(index, val) {
+        let foundNode = this.get(index);
+        if (foundNode) {
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+
+    }
+
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index == 0) return this.unshift(val)
+        if (index == this.length) return this.push(val)
+
+        let newNode = new Node(val);
+        let prev = this.get(index - 1);
+        let temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+
+    }
 }
 
 
@@ -90,3 +114,7 @@ console.log(list.head.val)
 list.shift()
 console.log(list.head.val)
 console.log(list.get(3))
+list.set(3, 'VALUE CHANGED')
+console.log(list.get(3).val)
+list.insert(1, 'INSERTED')
+console.log(list.get(1).val)
