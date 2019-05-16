@@ -5,7 +5,9 @@ class Node {
     }
 }
 
+
 class SinglyLinkList {
+
     constructor() {
         this.length = 0
         this.head = null
@@ -51,10 +53,11 @@ class SinglyLinkList {
         this.length--;
         return currentHead.val;
     }
+    //Adds Value to the Starting of the Link List!
     unshift(val) {
         let newNode = new Node(val);
         if (!this.head) {
-            this.head = newNode();
+            this.head = newNode;
             this.tail = this.head
 
         } else {
@@ -158,4 +161,3 @@ console.log(list.get(1).val)
 console.log(list.print())
 console.log(list.reverse())
 console.log(list.print())
-``
