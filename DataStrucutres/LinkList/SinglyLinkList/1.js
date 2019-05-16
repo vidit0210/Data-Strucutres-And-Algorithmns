@@ -74,6 +74,7 @@ class SinglyLinkList {
         }
         return current
     }
+
     set(index, val) {
         let foundNode = this.get(index);
         if (foundNode) {
@@ -98,6 +99,42 @@ class SinglyLinkList {
         return true;
 
     }
+    remove(index) {
+        if (index < 0 || index > this.length) return undefined;
+        if (index == 0) return this.shift();
+        if (index == this.length - 1) return this.pop()
+
+        let previousNode = this.get(index - 1)
+        let removed = previousNode.next
+        previousNode.next = removed.next;
+        this.length--;
+        return removed;
+    }
+    print() {
+        let arr = []
+        let current = this.head
+        while (current) {
+            arr.push(current.val)
+            current = current.next;
+        }
+        console.log(arr)
+    }
+    reverse() {
+        //Swaping Node and Tail
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+
+        let next;
+        let prev = null;
+        for (let i = 0; i < this.length; i++) {
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return this;
+    }
 }
 
 
@@ -118,3 +155,7 @@ list.set(3, 'VALUE CHANGED')
 console.log(list.get(3).val)
 list.insert(1, 'INSERTED')
 console.log(list.get(1).val)
+console.log(list.print())
+console.log(list.reverse())
+console.log(list.print())
+``
