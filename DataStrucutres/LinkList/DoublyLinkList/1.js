@@ -69,12 +69,55 @@ class DoublyLinkList {
             this.head = newNode;
             this.tail = newNode;
         } else {
-            let temp = this.head;
+            this.head.prev = newNode;
+            newNode.next = this.head;
             this.head = newNode;
-            this.head.next = temp;
-            this.head.prev = null;
         }
         this.length++;
+        return this;
+    }
+    get(index) {
+        if (index < 0 || index >= this.length) return false;
+        if (index <= this.length / 2) {
+            let count = 0;
+            let current = this.head;
+            while (count !== index) {
+                current = current.next;
+                count++;
+            }
+            return current
+
+        } else {
+            count = this.length - 1;
+            let current = this.tail;
+            while (count !== index) {
+                current = current.prev;
+                count--;
+            }
+            return current
+        }
+
+    }
+    set(index, val) {
+        let foundNode = this.get(index);
+        if (foundNode) {
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index == 0) return this.unhsift(val);
+        if (index === this.length) return this.push(val);
+
+        let newNode = new Node(val);
+        let beforeNode = this.get(index - 1)
+        let afterNode = beforeNode.next;
+        beforeNode.next = newNode;
+        newNode.prev = beforeNode;
+        newNode.next = afterNode;
+        afterNode.prev = newNode;
     }
 
 }
@@ -91,3 +134,6 @@ dl.shift()
 console.log(dl.print());
 dl.unhsift(0)
 console.log(dl.print());
+console.log(dl.get(2))
+dl.insert(2, 99)
+console.log(dl.print())
