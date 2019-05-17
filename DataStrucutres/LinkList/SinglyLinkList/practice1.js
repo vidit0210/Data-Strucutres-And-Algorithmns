@@ -93,7 +93,6 @@ class SingleLinkList {
         this.length++;
     }
     remove(index) {
-
         if (index < 0 || index > this.length) return false;
         if (index == 0) return this.shift()
         if (index == this.length) return this.pop();
@@ -101,12 +100,7 @@ class SingleLinkList {
         let removed = previousNode.next;
         previousNode.next = removed.next;
         this.length--;
-
-
-
     }
-
-
 
 }
 let sl = new SingleLinkList()
