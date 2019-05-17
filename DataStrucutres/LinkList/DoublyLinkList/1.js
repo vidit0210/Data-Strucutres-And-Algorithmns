@@ -63,6 +63,20 @@ class DoublyLinkList {
         this.length--;
         return oldHead
     }
+    unhsift(val) {
+        let newNode = new Node(val)
+        if (this.length == 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            let temp = this.head;
+            this.head = newNode;
+            this.head.next = temp;
+            this.head.prev = null;
+        }
+        this.length++;
+    }
+
 }
 dl = new DoublyLinkList();
 dl.push(3);
@@ -74,4 +88,6 @@ console.log(dl.print());
 dl.pop();
 console.log(dl.print());
 dl.shift()
+console.log(dl.print());
+dl.unhsift(0)
 console.log(dl.print());
