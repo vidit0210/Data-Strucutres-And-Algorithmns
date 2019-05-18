@@ -5,6 +5,9 @@ class Node {
         this.prev = null;
     }
 }
+let head = new Node(3)
+head.next = new Node(4);
+console.log(head.next.val)
 
 class DoublyLinkList {
     constructor() {
