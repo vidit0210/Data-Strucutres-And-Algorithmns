@@ -109,7 +109,25 @@ class DoubleLinkList {
     if (index == this.length) return this.push(value);
 
     let newNode = new Node(value);
-    let foundNode = this.get(index - 1);
+    let beforeNode = this.get(index - 1);
+    let afterNode = beforeNode.next;
+    beforeNode.next = newNode;
+    newNode.prev = beforeNode;
+    newNode.next = afterNode;
+    this.length++;
+  }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return false;
+    if (index == 0) return this.shift();
+    if (index == this.length) return this.pop();
+
+    let beforeNode = this.get(index - 1);
+    let removeNode = beforeNode.next;
+    beforeNode.next = removeNode.next;
+    removeNode.prev = null;
+    removeNode.next = null;
+    this.length--;
   }
 
   getLength() {
@@ -129,5 +147,7 @@ dl.unshift(0);
 console.log(dl.print());
 dl.unshift(-1);
 console.log(dl.print());
-dl.set(0, 99);
+dl.insert(1, 100);
+console.log(dl.print());
+dl.remove(1);
 console.log(dl.print());
