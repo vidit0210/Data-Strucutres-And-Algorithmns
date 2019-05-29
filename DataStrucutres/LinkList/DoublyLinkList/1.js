@@ -63,8 +63,47 @@ class DoubleLinkList {
   //Adds the Node in the Begining
 
   unshift(value) {
-    let th;
+    let newHead = new Node(value);
+    if (!this.head) {
+      this.head = newHead;
+      this.tail = this.head;
+    } else {
+      newHead.next = this.head;
+      this.head = newHead;
+      newHead.prev = null;
+    }
+    this.length++;
   }
+  get(index) {
+    if (index < 0 || index > this.length - 1) return false;
+    if (index <= this.length / 2) {
+      let count = 0;
+      let current = this.head;
+      while (index != count) {
+        current = current.next;
+        count++;
+      }
+      return current;
+    } else {
+      let count = this.length - 1;
+      let current = this.tail;
+      while (count != index) {
+        current = current.prev;
+        count--;
+      }
+      return current;
+    }
+  }
+  set(index, value) {
+    let foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = value;
+      return true;
+    }
+    return false;
+  }
+
+  insert(index, value) {}
 
   getLength() {
     return this.length;
@@ -78,4 +117,10 @@ dl.push(3);
 dl.push(4);
 console.log(dl.print());
 dl.shift();
+console.log(dl.print());
+dl.unshift(0);
+console.log(dl.print());
+dl.unshift(-1);
+console.log(dl.print());
+dl.set(0, 99);
 console.log(dl.print());
