@@ -150,4 +150,4 @@ console.log(dl.print());
 dl.insert(1, 100);
 console.log(dl.print());
 dl.remove(1);
-console.log(dl.print());
+console.log(dl.print());``
