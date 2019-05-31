@@ -26,4 +26,30 @@ function power(num, value) {
   if (value == 0) return 1;
   return num * power(num, value - 1);
 }
-console.log(power(2, 5));
+// console.log(power(2, 5));
+
+//Collect Odd values
+function collectOddValues(arr) {
+  let newArr = [];
+  if (arr.length == 0) return;
+  if (!(arr[0] % 2 == 0)) newArr.push(arr[0]);
+  newArr = newArr.concat(collectOddValues(arr.slice(1)));
+  return newArr;
+}
+
+// console.log(collectOddValues([2, 3, 4, 5, 6, 7]));
+
+function productOfArray(arr) {
+  if (arr.length == 0) return 1;
+  arr = arr[0] * productOfArray(arr.slice(1));
+  return arr;
+}
+
+function fib(n) {
+  if (n <= 2) {
+    return 1;
+  }
+
+  return fib(n - 1) + fib(n - 2);
+}
+console.log(fib(4));
