@@ -2,7 +2,7 @@
 //
 
 const swap = (arr, index1, index2) => {
-  return ([arr[index1], arr[index2]] = [``arr[index2], arr[index1]]);
+  return ([arr[index1], arr[index2]] = [arr[index2], arr[index1]]);
 };
 function BubbleSort(arr) {
   for (let i = 0; i < arr.length; i++) {
@@ -19,3 +19,5 @@ function BubbleSort(arr) {
 }
 
 console.log(BubbleSort([4, 2, 7, 1, 9, 6, 3]));
+
+//Coding Since 1996 But still can't look forward for any answer hopefully works for
