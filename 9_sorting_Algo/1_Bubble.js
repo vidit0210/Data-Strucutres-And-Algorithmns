@@ -19,5 +19,3 @@ function BubbleSort(arr) {
 }
 
 console.log(BubbleSort([4, 2, 7, 1, 9, 6, 3]));
-
-//Coding Since 1996 But still can't look forward for any answer hopefully works for
