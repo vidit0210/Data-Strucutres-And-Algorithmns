@@ -10,6 +10,7 @@ return the count
  */
 function naiveString(str, pattern) {
   let count = 0;
+
   for (let i = 0; i < str.length; i++) {
     for (let j = 0; j < pattern.length; j++) {
       if (str[i + j] !== pattern[j]) break;
