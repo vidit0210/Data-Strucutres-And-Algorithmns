@@ -51,9 +51,7 @@ class BinarySearchTree {
         return found;
       }
     }
-    if (!found) {
-      return false;
-    }
+    return false;
   }
 }
 
